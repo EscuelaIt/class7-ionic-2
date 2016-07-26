@@ -1,0 +1,33 @@
+<!--
+  Generated template for the TasksPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>tasks</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <button block (click)="get()">GET</button>
+  <button block (click)="post()">POST</button>
+  <button block (click)="put()">Put</button>
+  <ion-list>
+    <ion-item-sliding *ngFor="let task of tasks">
+      <ion-item >
+        <ion-label>{{ task.title }}</ion-label>
+        <ion-checkbox (click)="put( task )" [(ngModel)]="task.completed"></ion-checkbox>
+      </ion-item>
+      <ion-item-options side="right">
+        <button danger (click)="delete( task )">Delete</button>
+      </ion-item-options>
+    </ion-item-sliding>
+    
+  </ion-list>
+</ion-content>
